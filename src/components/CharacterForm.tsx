@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { TextField, Button, Grid, Typography, styled } from '@mui/material';
-import Layout from './Layout'; // Import the Layout component
+import Layout from './Layout'; 
 import BackgroundImage from "../assets/star-wars-characters-background.jpg";
 
 const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: 'rgba(255, 255, 255, 0.5)', // Set the border color
-      borderWidth: '2px', // Set the border thickness
+      borderColor: 'rgba(255, 255, 255, 0.5)', 
+      borderWidth: '3px', 
     },
     '&:hover fieldset': {
-      borderColor: 'rgba(255, 255, 255, 0.8)', // Set the hover border color
+      borderColor: 'rgba(255, 255, 255, 0.8)',
     },
   },
   '& .MuiInputLabel-root': {
-    color: 'white', // Set the label color
+    color: 'white', 
   },
   '& .MuiInputBase-root': {
-    color: 'white', // Set the text color
+    color: 'white', 
   },
 });
 
@@ -40,7 +40,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
   };
 
   return (
-    <Layout> {/* Wrap the CharacterForm component with the Layout component */}
+    <Layout>
       <Grid container spacing={2} direction="column" alignItems="center">
         <Grid item>
           <Typography variant="h4" align="center" gutterBottom style={{ marginBottom: '20px' }}>
