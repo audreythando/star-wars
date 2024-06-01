@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Grid, Typography, styled } from '@mui/material';
 import Layout from './Layout'; 
-import BackgroundImage from "../assets/star-wars-characters-background.jpg";
 
 const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
