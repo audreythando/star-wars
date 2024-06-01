@@ -16,18 +16,18 @@ const FormContainer = styled('div')({
 const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: 'rgba(255, 255, 255, 0.5)', // Set the border color
-      borderWidth: '2px', // Set the border thickness
+      borderColor: 'rgba(255, 255, 255, 0.5)', 
+      borderWidth: '2px', 
     },
     '&:hover fieldset': {
-      borderColor: 'rgba(255, 255, 255, 0.8)', // Set the hover border color
+      borderColor: 'rgba(255, 255, 255, 0.8)', 
     },
   },
   '& .MuiInputLabel-root': {
-    color: 'white', // Set the label color
+    color: 'white',
   },
   '& .MuiInputBase-root': {
-    color: 'white', // Set the text color
+    color: 'white', 
   },
 });
 
