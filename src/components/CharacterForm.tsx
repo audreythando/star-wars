@@ -1,30 +1,20 @@
 import React, { useState } from 'react';
 import { TextField, Button, Grid, Typography, styled } from '@mui/material';
+import Layout from './Layout'; 
 import BackgroundImage from "../assets/star-wars-characters-background.jpg";
-
-const FormContainer = styled('div')({
-  backgroundImage: `url(${BackgroundImage})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  minHeight: '100vh',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: '20px',
-});
 
 const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderColor: 'rgba(255, 255, 255, 0.5)', 
-      borderWidth: '2px', 
+      borderWidth: '3px', 
     },
     '&:hover fieldset': {
-      borderColor: 'rgba(255, 255, 255, 0.8)', 
+      borderColor: 'rgba(255, 255, 255, 0.8)',
     },
   },
   '& .MuiInputLabel-root': {
-    color: 'white',
+    color: 'white', 
   },
   '& .MuiInputBase-root': {
     color: 'white', 
@@ -50,15 +40,14 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
   };
 
   return (
-    <FormContainer>
+    <Layout>
       <Grid container spacing={2} direction="column" alignItems="center">
         <Grid item>
-          <Typography variant="h4" align="center" gutterBottom>
-            Star Wars Character Comparison
+          <Typography variant="h4" align="center" gutterBottom style={{ marginBottom: '20px' }}>
           </Typography>
         </Grid>
         <Grid item container spacing={2} direction="row" alignItems="center" justifyContent="center">
-          <Grid item>
+          <Grid item xs={12} sm={5}>
             <StyledTextField
               label="Character 1"
               variant="outlined"
@@ -67,10 +56,10 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
               onChange={(e) => setCharacter1(e.target.value)}
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={12} sm={2}>
             <Typography variant="h6" align="center">VS</Typography>
           </Grid>
-          <Grid item>
+          <Grid item xs={12} sm={5}>
             <StyledTextField
               label="Character 2"
               variant="outlined"
@@ -89,7 +78,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
           </Button>
         </Grid>
       </Grid>
-    </FormContainer>
+    </Layout>
   );
 };
 
