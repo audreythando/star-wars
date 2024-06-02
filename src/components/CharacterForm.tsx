@@ -39,7 +39,6 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
   };
 
   return (
-    <Layout>
       <Grid container spacing={2} direction="column" alignItems="center">
         <Grid item>
           <Typography variant="h4" align="center" gutterBottom style={{ marginBottom: '20px' }}>
@@ -77,7 +76,6 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
           </Button>
         </Grid>
       </Grid>
-    </Layout>
   );
 };
 
