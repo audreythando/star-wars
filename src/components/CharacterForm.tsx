@@ -12,11 +12,11 @@ import { useState } from 'react';
 const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: 'rgba(255, 255, 255, 0.5)', 
+      borderColor: 'white', 
       borderWidth: '4px', 
     },
     '&:hover fieldset': {
-      borderColor: 'rgba(255, 255, 255, 0.8)',
+      borderColor: 'rgba(26, 27, 61, 0.8)',
     },
   },
   '& .MuiInputLabel-root': {
@@ -111,8 +111,20 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
             <Grid item xs={12}>
               {error && <Typography color="error">{error}</Typography>}
             </Grid>
-            <Grid item xs={12}>
-              <Button variant="contained" color="primary" onClick={handleSubmit} sx={{ width: '100%', maxWidth: '300px' }}>
+                 <Grid item xs={12}>
+              <Button 
+                variant="contained" 
+                onClick={handleSubmit} 
+                sx={{ 
+                  width: '100%', 
+                  maxWidth: '300px', 
+                  backgroundColor: 'rgba(26, 27, 61, 0.8)', 
+                  color: '#fff', 
+                  '&:hover': {
+                    backgroundColor: 'rgba(26, 27, 61, 1)', 
+                  } 
+                }}
+              >
                 Compare
               </Button>
             </Grid>
