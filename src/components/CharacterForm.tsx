@@ -53,6 +53,17 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
         background: `url(${BackgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+                py: 8,
+                    '::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)', // Black overlay with opacity
+          zIndex: -1,
+        },
       })}
     >
       <Container
