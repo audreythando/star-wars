@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import BackgroundImage from "../assets/starwars.jpg";
+import BackgroundImage from "../assets/star-wars.jpg";
 import { useState } from 'react';
 
 const StyledTextField = styled(TextField)({
