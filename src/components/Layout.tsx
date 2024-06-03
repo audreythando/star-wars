@@ -1,38 +1,38 @@
-import React from 'react';
-import { Typography, styled } from '@mui/material';
+import React from "react";
+import { Typography, styled } from "@mui/material";
 import BackgroundImage from "../assets/star-wars-characters-background.jpg";
 
-const LayoutContainer = styled('div')(({ theme }) => ({
-  position: 'relative',
-  minHeight: '100vh',
+const LayoutContainer = styled("div")(({ theme }) => ({
+  position: "relative",
+  minHeight: "100vh",
   background: `url(${BackgroundImage})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  '&::before': {
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  "&::before": {
     content: '""',
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'rgba(0, 0, 0, 0.2)',
+    width: "100%",
+    height: "100%",
+    background: "rgba(0, 0, 0, 0.2)",
     zIndex: 1,
-    transition: 'opacity 0.3s ease',
-    pointerEvents: 'none',
+    transition: "opacity 0.3s ease",
+    pointerEvents: "none",
     opacity: 0,
   },
-  '&:hover::before': {
+  "&:hover::before": {
     opacity: 1,
   },
-  [theme.breakpoints.down('sm')]: {  // Mobile responsiveness using breakpoints
-    fontSize: '1.2rem', // Adjust font size for smaller screens
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "1.2rem",
   },
 }));
 
 const Title = styled(Typography)({
-  color: 'white',
-  fontWeight: 'bold',
-  fontSize: '3rem',
+  color: "white",
+  fontWeight: "bold",
+  fontSize: "3rem",
   fontFamily: "'Star Wars', sans-serif",
 });
 
