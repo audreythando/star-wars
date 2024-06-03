@@ -22,6 +22,11 @@ const theme = createTheme({
   },
 });
 
+const getImagePath = (name: string) => {
+  const normalizedName = name.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+  return `/assets/images/${normalizedName}.jpg`;
+};
+
 const App: React.FC = () => {
   const [character1, setCharacter1] = useState<any>(null);
   const [character2, setCharacter2] = useState<any>(null);
@@ -73,12 +78,12 @@ const App: React.FC = () => {
           <Grid container spacing={4} sx={{ mt: 4, justifyContent: 'center' }}>
             {character1 && (
               <Grid item xs={12} md={6} lg={4}>
-                <CharacterCard character={character1} />
+                <CharacterCard character={character1} image={getImagePath(character1.name)} />
               </Grid>
             )}
             {character2 && (
               <Grid item xs={12} md={6} lg={4}>
-                <CharacterCard character={character2} />
+                <CharacterCard character={character2} image={getImagePath(character2.name)} />
               </Grid>
             )}
           </Grid>

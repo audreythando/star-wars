@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, styled } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, styled } from '@mui/material';
 
 interface ComparisonTableProps {
   character1: any;
