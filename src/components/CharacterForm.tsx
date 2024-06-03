@@ -88,7 +88,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
               color: "white",
             }}
           >
-            STAR WARS
+            STAR WARS SHOWDOWN
           </Typography>
           <Stack
             direction={{ xs: "column", sm: "row" }}
