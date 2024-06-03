@@ -1,8 +1,8 @@
 import React from 'react';
 import { Typography, styled } from '@mui/material';
-import BackgroundImage from "../assets/star-wars-characters-background.jpg"
+import BackgroundImage from "../assets/star-wars-characters-background.jpg";
 
-const LayoutContainer = styled('div')({
+const LayoutContainer = styled('div')(({ theme }) => ({
   position: 'relative',
   minHeight: '100vh',
   background: `url(${BackgroundImage})`,
@@ -15,7 +15,7 @@ const LayoutContainer = styled('div')({
     left: 0,
     width: '100%',
     height: '100%',
-    background: 'rgba(0, 0, 0, 0.2)', 
+    background: 'rgba(0, 0, 0, 0.2)',
     zIndex: 1,
     transition: 'opacity 0.3s ease',
     pointerEvents: 'none',
@@ -24,13 +24,16 @@ const LayoutContainer = styled('div')({
   '&:hover::before': {
     opacity: 1,
   },
-});
+  [theme.breakpoints.down('sm')]: {  // Mobile responsiveness using breakpoints
+    fontSize: '1.2rem', // Adjust font size for smaller screens
+  },
+}));
 
 const Title = styled(Typography)({
   color: 'white',
   fontWeight: 'bold',
-  fontSize: '3rem', 
-  fontFamily: "'Star Wars', sans-serif", 
+  fontSize: '3rem',
+  fontFamily: "'Star Wars', sans-serif",
 });
 
 interface LayoutProps {

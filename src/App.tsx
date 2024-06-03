@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CharacterForm from './components/CharacterForm';
-import Layout from './components/Layout';
+
 
 const App: React.FC = () => {
   const [character1, setCharacter1] = useState<any>(null);
@@ -30,9 +30,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <Layout>
       <CharacterForm onCompare={handleCompare} />
-    </Layout>
+ 
   );
 };
 

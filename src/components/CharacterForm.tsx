@@ -1,6 +1,13 @@
-import React, { useState } from 'react';
-import { TextField, Button, Grid, Typography, styled } from '@mui/material';
-import Layout from './Layout'; 
+import * as React from 'react';
+import { Grid, styled } from '@mui/material';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import BackgroundImage from "../assets/starwars.jpg";
+import { useState } from 'react';
 
 const StyledTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
@@ -39,44 +46,70 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
   };
 
   return (
-      <Grid container spacing={2} direction="column" alignItems="center">
-        <Grid item>
-          <Typography variant="h4" align="center" gutterBottom style={{ marginBottom: '20px' }}>
+    <Box
+      id="hero"
+      sx={(theme) => ({
+        width: '100%',
+        background: `url(${BackgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      })}
+    >
+      <Container
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          pt: { xs: 14, sm: 20 },
+          pb: { xs: 8, sm: 12 },
+        }}
+      >
+        <Stack spacing={2} useFlexGap sx={{ width: { xs: '100%', sm: '70%' } }}>
+          <Typography
+            variant="h1"
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', md: 'row' },
+              alignSelf: 'center',
+              textAlign: 'center',
+              fontSize: 'clamp(3.5rem, 10vw, 4rem)',
+              fontFamily: "'Star Wars', sans-serif",
+              color: 'white'
+            }}
+          >
+            STAR WARS
           </Typography>
-        </Grid>
-        <Grid item container spacing={2} direction="row" alignItems="center" justifyContent="center">
-          <Grid item xs={12} sm={5}>
-            <StyledTextField
-              label="Character 1"
-              variant="outlined"
-              fullWidth
-              value={character1}
-              onChange={(e) => setCharacter1(e.target.value)}
-            />
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            alignSelf="center"
+            spacing={1}
+            useFlexGap
+            sx={{ pt: 2, width: { xs: '100%', sm: 'auto' } }}
+          >
+            <Grid item container spacing={2} direction="column" alignItems="center" xs={12}>
+              <StyledTextField label="Character 1" variant="outlined" value={character1} onChange={(e) => setCharacter1(e.target.value)} />
+            </Grid>
+            <Grid item container spacing={2} direction="column" alignItems="center" xs={12} sx={{ mt: { xs: 2, sm: 0 },  mb: { xs: 2, sm: 0 }}}>
+              <Typography variant="h6" align="center" sx={{ fontFamily: "'Star Wars', sans-serif", color: 'white' }}>VS</Typography>
+            </Grid>
+            <Grid item container spacing={2} direction="column" alignItems="center" xs={12}>
+              <StyledTextField label="Character 2" variant="outlined" value={character2} onChange={(e) => setCharacter2(e.target.value)} />
+            </Grid>
+          </Stack>
+          <Grid item container spacing={2} direction="column" alignItems="center" xs={12}>
+            <Grid item xs={12}>
+              {error && <Typography color="error">{error}</Typography>}
+            </Grid>
+            <Grid item xs={12}>
+              <Button variant="contained" color="primary" onClick={handleSubmit} sx={{ width: '100%', maxWidth: '300px' }}>
+                Compare
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={2}>
-            <Typography variant="h6" align="center">VS</Typography>
-          </Grid>
-          <Grid item xs={12} sm={5}>
-            <StyledTextField
-              label="Character 2"
-              variant="outlined"
-              fullWidth
-              value={character2}
-              onChange={(e) => setCharacter2(e.target.value)}
-            />
-          </Grid>
-        </Grid>
-        <Grid item>
-          {error && <Typography color="error">{error}</Typography>}
-        </Grid>
-        <Grid item>
-          <Button variant="contained" color="primary" onClick={handleSubmit}>
-            Compare
-          </Button>
-        </Grid>
-      </Grid>
+        </Stack>
+      </Container>
+    </Box>
   );
-};
+}
 
 export default CharacterForm;
