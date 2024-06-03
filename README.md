@@ -86,6 +86,13 @@ Ensure you have Node.js and npm installed. The application uses the SWAPI to fet
 
 Compare characters like Luke Skywalker and Darth Vader to see who is taller, has more mass, or other attributes.
 
+![Screenshot (500)](https://github.com/audreythando/star-wars-showdown/assets/82891759/34dae0e2-1e00-4932-a614-51ae48e49621)
+
+![Screenshot (501)](https://github.com/audreythando/star-wars-showdown/assets/82891759/838b6854-d0bd-4781-bcca-a9724c8fdb1d)
+
+![Screenshot (502)](https://github.com/audreythando/star-wars-showdown/assets/82891759/54e23c23-d92f-4f07-af51-ad2165f38832)
+
+
 ## 🛠️ Troubleshooting
 
 If you encounter any issues, please check the following:
