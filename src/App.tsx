@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import { CssBaseline, Grid, Container, ThemeProvider, createTheme, Box } from '@mui/material';
+import { CssBaseline, Grid, Container, ThemeProvider, createTheme, Box, Typography } from '@mui/material';
 import CharacterForm from './components/CharacterForm';
 import CharacterCard from './components/CharacterCard';
 import Backdrop from './assets/background.jpg';
 import ComparisonTable from './components/ComparisonTable';
+import { getCharacterByName } from './services/swapiService';
 
 const theme = createTheme({
   palette: {
     background: {
-      default: '#000', 
+      default: '#000',
     },
     text: {
-      primary: '#fff', 
+      primary: '#fff',
     },
   },
   typography: {
     allVariants: {
-      color: '#fff', 
+      color: '#fff',
     },
   },
 });
@@ -24,28 +25,19 @@ const theme = createTheme({
 const App: React.FC = () => {
   const [character1, setCharacter1] = useState<any>(null);
   const [character2, setCharacter2] = useState<any>(null);
+  const [error, setError] = useState<string>('');
 
-  const handleCompare = (char1: string, char2: string) => {
-    setCharacter1({
-      name: char1,
-      height: '172',
-      mass: '77',
-      hair_color: 'blond',
-      skin_color: 'fair',
-      eye_color: 'blue',
-      birth_year: '19BBY',
-      gender: 'male',
-    });
-    setCharacter2({
-      name: char2,
-      height: '180',
-      mass: '80',
-      hair_color: 'brown',
-      skin_color: 'light',
-      eye_color: 'green',
-      birth_year: '20BBY',
-      gender: 'female',
-    });
+  const handleCompare = async (char1: string, char2: string) => {
+    try {
+      const characterData1 = await getCharacterByName(char1);
+      const characterData2 = await getCharacterByName(char2);
+
+      setCharacter1(characterData1);
+      setCharacter2(characterData2);
+      setError('');
+    } catch (err) {
+      setError('Error fetching character data. Please check the character names and try again.');
+    }
   };
 
   return (
@@ -66,13 +58,18 @@ const App: React.FC = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
             zIndex: -1,
           },
         }}
       >
         <Container sx={{ position: 'relative', zIndex: 2 }}>
           <CharacterForm onCompare={handleCompare} />
+          {error && (
+            <Typography color="error" align="center" sx={{ mt: 2 }}>
+              {error}
+            </Typography>
+          )}
           <Grid container spacing={4} sx={{ mt: 4, justifyContent: 'center' }}>
             {character1 && (
               <Grid item xs={12} md={6} lg={4}>
@@ -92,7 +89,7 @@ const App: React.FC = () => {
               </Grid>
             )}
           </Grid>
-            <Grid container spacing={4} sx={{ mt: 4, justifyContent: 'center' }}></Grid>
+          <Grid container spacing={4} sx={{ mt: 4, justifyContent: 'center' }}></Grid>
         </Container>
       </Box>
     </ThemeProvider>
