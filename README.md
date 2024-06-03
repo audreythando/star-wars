@@ -76,6 +76,7 @@ Open your browser and navigate to `http://localhost:3000` to use the app.
 
 - React.js
 - TypeScript
+- Material UI
 - SWAPI
 - Axios
 
