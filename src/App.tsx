@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { CssBaseline, Grid, Container, ThemeProvider, createTheme, Box } from '@mui/material';
 import CharacterForm from './components/CharacterForm';
 import CharacterCard from './components/CharacterCard';
-import Backdrop from './assets/background.jpg'
+import Backdrop from './assets/background.jpg';
+import ComparisonTable from './components/ComparisonTable';
 
 const theme = createTheme({
   palette: {
     background: {
-      default: '#000', // Black background
+      default: '#000', 
     },
     text: {
-      primary: '#fff', // White text color
+      primary: '#fff', 
     },
   },
   typography: {
     allVariants: {
-      color: '#fff', // Set default text color to white
+      color: '#fff', 
     },
   },
 });
@@ -53,7 +54,7 @@ const App: React.FC = () => {
       <Box
         sx={{
           minHeight: '100vh',
-           backgroundImage: `url(${Backdrop})`,
+          backgroundImage: `url(${Backdrop})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           position: 'relative',
@@ -65,7 +66,7 @@ const App: React.FC = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Black overlay with opacity
+            backgroundColor: 'rgba(0, 0, 0, 0.5)', 
             zIndex: -1,
           },
         }}
@@ -84,6 +85,14 @@ const App: React.FC = () => {
               </Grid>
             )}
           </Grid>
+          <Grid container spacing={4} sx={{ mt: 4, justifyContent: 'center' }}>
+            {character1 && character2 && (
+              <Grid item xs={12} md={12} lg={12}>
+                <ComparisonTable character1={character1} character2={character2} />
+              </Grid>
+            )}
+          </Grid>
+            <Grid container spacing={4} sx={{ mt: 4, justifyContent: 'center' }}></Grid>
         </Container>
       </Box>
     </ThemeProvider>
