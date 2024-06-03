@@ -15,14 +15,16 @@ interface CharacterCardProps {
 }
 
 const StyledCard = styled(Card)(({ theme }) => ({
-  background: '#1a2b4d', // Dark blue background
-  color: '#fff', // White text color
-  borderRadius: '15px', // Rounded corners
-  textAlign: 'center', // Center align text
+  background: 'rgba(26, 27, 61, 0.8)', 
+  color: '#fff', 
+  borderRadius: '15px', 
+  textAlign: 'center', 
   padding: theme.spacing(2),
   maxWidth: 300,
-  margin: '0 auto', // Center the card horizontally
+  margin: '0 auto', 
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', 
   '&:hover': {
+    background: '#162447', 
     transform: 'scale(1.05)',
     transition: 'transform 0.2s ease-in-out',
   },
@@ -34,7 +36,7 @@ const AvatarCircle = styled('div')({
   borderRadius: '50%',
   overflow: 'hidden',
   margin: '0 auto 16px',
-  border: '2px solid #fff', // White border around avatar
+  border: '2px solid #fff',
 });
 
 const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
