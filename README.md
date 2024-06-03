@@ -1,46 +1,105 @@
-# Getting Started with Create React App
+# 🌟 Star Wars Showdown
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the **Star Wars Showdown**! A web application that allows users to compare various attributes of Star Wars characters using the SWAPI data.
 
-## Available Scripts
+## 📖 Table of Contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Objective](#objective)
+- [Requirements](#requirements)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Dependencies](#dependencies)
+- [Configuration](#configuration)
+- [Examples](#examples)
+- [Troubleshooting](#troubleshooting)
+- [Contributors](#contributors)
+- [License](#license)
 
-### `npm start`
+## 🌌 Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The Star Wars Showdown is a user-friendly web application that allows you to compare various attributes of Star Wars characters side by side. Using data from the SWAPI, it provides a fun and interactive way to see how your favorite characters stack up against each other.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🎯 Objective
 
-### `npm test`
+Create a web application that allows users to compare various attributes of Star Wars characters using the SWAPI data.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚙️ Requirements
 
-### `npm run build`
+### Front End
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Develop a user-friendly web interface where users can input two different Star Wars character names.
+- Display the selected characters' attributes side by side for easy comparison. Attributes include name, height, mass, hair color, skin color, etc.
+- Implement a visual representation (e.g., images or icons) for each character.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Back End
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Utilize the SWAPI API to retrieve character data based on the input names.
+- Implement a function to compare the attributes of the two characters and determine which character has the higher value for each attribute.
+- Provide a user-friendly output indicating which character wins each attribute comparison.
 
-### `npm run eject`
+## ✨ Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Compare various attributes of Star Wars characters.
+- Visual representation of characters.
+- User-friendly interface.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠️ Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To install and run this project locally:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/audreythando/star-wars-showdown.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd star-wars-showdown
+    ```
+3. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
-## Learn More
+## 🚀 Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To start the application, run:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
+
+Open your browser and navigate to `http://localhost:3000` to use the app.
+
+## 📦 Dependencies
+
+- React
+- SWAPI
+- Axios
+
+## ⚙️ Configuration
+
+Ensure you have Node.js and npm installed. The application uses the SWAPI to fetch character data.
+
+## 💡 Examples
+
+Compare characters like Luke Skywalker and Darth Vader to see who is taller, has more mass, or other attributes.
+
+## 🛠️ Troubleshooting
+
+If you encounter any issues, please check the following:
+- Ensure you have an active internet connection.
+- Verify that the SWAPI API is reachable.
+
+## 👥 Contributors
+
+- Audrey Thando Mpalume - [GitHub](https://github.com/audreythando)
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+Feel free to contribute or report issues! May the Force be with you! 🌠
