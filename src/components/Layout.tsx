@@ -42,7 +42,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <LayoutContainer>
+    <LayoutContainer data-testid="layout-container">
       <Title variant="h1" align="center" gutterBottom>
         Star Wars Character Showdown
       </Title>
