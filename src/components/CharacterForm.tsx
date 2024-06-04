@@ -1,31 +1,16 @@
 import * as React from "react";
-import { Grid, styled } from "@mui/material";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+import { useEffect, useState } from "react";
+import {
+  Grid,
+  Typography,
+  Button,
+  Box,
+  Container,
+  Stack,
+  Select,
+} from "@mui/material";
 import BackgroundImage from "../assets/star-wars.jpg";
-import { useState } from "react";
-
-const StyledTextField = styled(TextField)({
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "white",
-      borderWidth: "4px",
-    },
-    "&:hover fieldset": {
-      borderColor: "rgba(26, 27, 61, 0.8)",
-    },
-  },
-  "& .MuiInputLabel-root": {
-    color: "white",
-  },
-  "& .MuiInputBase-root": {
-    color: "white",
-  },
-});
+import { getCharacters } from "../services/swapiService";
 
 interface CharacterFormProps {
   onCompare: (character1: string, character2: string) => void;
@@ -34,7 +19,21 @@ interface CharacterFormProps {
 const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
   const [character1, setCharacter1] = useState("");
   const [character2, setCharacter2] = useState("");
+  const [characters, setCharacters] = useState([]);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchCharacters = async () => {
+      try {
+        const allCharacters = await getCharacters();
+        setCharacters(allCharacters);
+      } catch (err) {
+        console.error("Error fetching characters:", err);
+      }
+    };
+
+    fetchCharacters();
+  }, []);
 
   const handleSubmit = () => {
     if (!character1 || !character2) {
@@ -45,15 +44,22 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
     }
   };
 
+  const getFilteredCharacters = (selectedCharacter: string) => {
+    return characters.filter(
+      (character: any) => character.name !== selectedCharacter
+    );
+  };
+
   return (
     <Box
       id="hero"
-      sx={(theme) => ({
+      sx={{
         width: "100%",
         background: `url(${BackgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         py: 8,
+        position: "relative",
         "::before": {
           content: '""',
           position: "absolute",
@@ -64,7 +70,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
           backgroundColor: "rgba(0, 0, 0, 0.5)",
           zIndex: -1,
         },
-      })}
+      }}
     >
       <Container
         sx={{
@@ -75,15 +81,12 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
           pb: { xs: 8, sm: 12 },
         }}
       >
-        <Stack spacing={2} useFlexGap sx={{ width: { xs: "100%", sm: "70%" } }}>
+        <Stack spacing={2} sx={{ width: { xs: "100%", sm: "70%" } }}>
           <Typography
             variant="h1"
             sx={{
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              alignSelf: "center",
               textAlign: "center",
-              fontSize: "clamp(3.5rem, 10vw, 4rem)",
+              fontSize: "clamp(2.5rem, 6vw, 4rem)",
               fontFamily: "'Star Wars', sans-serif",
               color: "white",
             }}
@@ -94,7 +97,6 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
             direction={{ xs: "column", sm: "row" }}
             alignSelf="center"
             spacing={1}
-            useFlexGap
             sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
           >
             <Grid
@@ -105,12 +107,28 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
               alignItems="center"
               xs={12}
             >
-              <StyledTextField
-                label="Character 1"
-                variant="outlined"
+              <Select
+                native
                 value={character1}
                 onChange={(e) => setCharacter1(e.target.value)}
-              />
+                sx={{
+                  width: { xs: "120px", sm: "auto" },
+                  minWidth: { xs: "120px", sm: "initial" },
+                  color: "white",
+                  border: "2px solid white",
+                  option: {
+                    backgroundColor: "white",
+                    color: "#162447",
+                  },
+                }}
+              >
+                <option value="">Select</option>
+                {getFilteredCharacters(character2).map((character: any) => (
+                  <option key={character.name} value={character.name}>
+                    {character.name}
+                  </option>
+                ))}
+              </Select>
             </Grid>
             <Grid
               item
@@ -124,7 +142,11 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
               <Typography
                 variant="h6"
                 align="center"
-                sx={{ fontFamily: "'Star Wars', sans-serif", color: "white" }}
+                sx={{
+                  fontFamily: "'Star Wars', sans-serif",
+                  color: "white",
+                  mx: 2,
+                }}
               >
                 VS
               </Typography>
@@ -137,12 +159,28 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
               alignItems="center"
               xs={12}
             >
-              <StyledTextField
-                label="Character 2"
-                variant="outlined"
+              <Select
+                native
                 value={character2}
                 onChange={(e) => setCharacter2(e.target.value)}
-              />
+                sx={{
+                  width: { xs: "120px", sm: "auto" },
+                  minWidth: { xs: "120px", sm: "initial" },
+                  border: "2px solid white",
+                  color: "white",
+                  option: {
+                    backgroundColor: "white",
+                    color: "#162447",
+                  },
+                }}
+              >
+                <option value="">Select</option>
+                {getFilteredCharacters(character1).map((character: any) => (
+                  <option key={character.name} value={character.name}>
+                    {character.name}
+                  </option>
+                ))}
+              </Select>
             </Grid>
           </Stack>
           <Grid
@@ -166,7 +204,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
                   backgroundColor: "rgba(26, 27, 61, 0.8)",
                   color: "#fff",
                   "&:hover": {
-                    backgroundColor: "rgba(26, 27, 61, 1)",
+                    backgroundColor: "#162447",
                   },
                 }}
               >

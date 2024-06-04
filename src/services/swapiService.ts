@@ -15,3 +15,13 @@ export const getCharacterByName = async (name: string) => {
     throw error;
   }
 };
+
+export const getCharacters = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/people/`);
+    return response.data.results;
+  } catch (error) {
+    console.error("Error fetching characters:", error);
+    throw error;
+  }
+};
