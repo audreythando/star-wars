@@ -44,7 +44,7 @@ const CharacterImage = styled("img")({
 
 const CharacterCard: React.FC<CharacterCardProps> = ({ character, image }) => {
   return (
-    <StyledCard>
+    <StyledCard id="character-card">
       <CardContent>
         <ImageWrapper>
           <CharacterImage src={image} alt={character.name} />

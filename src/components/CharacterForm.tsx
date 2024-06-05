@@ -13,10 +13,11 @@ import BackgroundImage from "../assets/star-wars.jpg";
 import { getCharacters } from "../services/swapiService";
 
 interface CharacterFormProps {
+  id: string;
   onCompare: (character1: string, character2: string) => void;
 }
 
-const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
+const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare, id }) => {
   const [character1, setCharacter1] = useState("");
   const [character2, setCharacter2] = useState("");
   const [characters, setCharacters] = useState([]);
@@ -52,7 +53,7 @@ const CharacterForm: React.FC<CharacterFormProps> = ({ onCompare }) => {
 
   return (
     <Box
-      id="hero"
+      id={id}
       sx={{
         width: "100%",
         background: `url(${BackgroundImage})`,

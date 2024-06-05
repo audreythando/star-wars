@@ -113,7 +113,12 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({
   );
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center">
+    <Box
+      id="comparison-table"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+    >
       <StyledTableContainer>
         <Table>
           <TableHead>

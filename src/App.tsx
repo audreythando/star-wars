@@ -13,6 +13,7 @@ import CharacterCard from "./components/CharacterCard";
 import Backdrop from "./assets/background.jpg";
 import ComparisonTable from "./components/ComparisonTable";
 import { getCharacterByName } from "./services/swapiService";
+import FloatingNavbar from "./components/Navbar";
 
 const theme = createTheme({
   palette: {
@@ -82,13 +83,18 @@ const App: React.FC = () => {
         }}
       >
         <Container sx={{ position: "relative", zIndex: 2 }}>
-          <CharacterForm onCompare={handleCompare} />
+          <CharacterForm id="character-form" onCompare={handleCompare} />
           {error && (
             <Typography color="error" align="center" sx={{ mt: 2 }}>
               {error}
             </Typography>
           )}
-          <Grid container spacing={4} sx={{ mt: 4, justifyContent: "center" }}>
+          <Grid
+            container
+            id="character-card"
+            spacing={4}
+            sx={{ mt: 4, justifyContent: "center" }}
+          >
             {character1 && (
               <Grid item xs={12} md={6} lg={4}>
                 <CharacterCard
@@ -108,7 +114,7 @@ const App: React.FC = () => {
           </Grid>
           <Grid container spacing={4} sx={{ mt: 4, justifyContent: "center" }}>
             {character1 && character2 && (
-              <Grid item xs={12} md={12} lg={12}>
+              <Grid item xs={12} md={12} lg={12} id="comparison-table">
                 <ComparisonTable
                   character1={character1}
                   character2={character2}
@@ -123,6 +129,7 @@ const App: React.FC = () => {
           ></Grid>
         </Container>
       </Box>
+      <FloatingNavbar />
     </ThemeProvider>
   );
 };
