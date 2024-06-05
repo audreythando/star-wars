@@ -1,3 +1,4 @@
+
 # 🌟 Star Wars Showdown
 
 Welcome to the **Star Wars Showdown**! A web application that allows users to compare various attributes of Star Wars characters using the SWAPI data.
@@ -13,6 +14,7 @@ Welcome to the **Star Wars Showdown**! A web application that allows users to co
 - [Dependencies](#dependencies)
 - [Configuration](#configuration)
 - [Examples](#examples)
+- [Testing](#testing)
 - [Troubleshooting](#troubleshooting)
 - [Contributors](#contributors)
 - [License](#license)
@@ -94,6 +96,15 @@ Compare characters like Luke Skywalker and Darth Vader to see who is taller, has
 
 ![Screenshot (502)](https://github.com/audreythando/star-wars-showdown/assets/82891759/54e23c23-d92f-4f07-af51-ad2165f38832)
 
+## 🧪 Testing
+
+Unit tests are written using React Testing Library and Jest. To run the tests, use the following command:
+
+```bash
+npm test
+```
+
+This will run all the unit tests and provide a summary of the test results.
 
 ## 🛠️ Troubleshooting
 
@@ -112,3 +123,6 @@ This project is licensed under the MIT License.
 ---
 
 Feel free to contribute or report issues! May the Force be with you! 🌠
+```
+
+This README now includes a section on testing, detailing the use of React Testing Library and Jest for unit testing.
