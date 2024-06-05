@@ -123,6 +123,4 @@ This project is licensed under the MIT License.
 ---
 
 Feel free to contribute or report issues! May the Force be with you! 🌠
-```
 
-This README now includes a section on testing, detailing the use of React Testing Library and Jest for unit testing.
