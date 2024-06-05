@@ -16,6 +16,8 @@ const NavbarContainer = styled(Box)({
   justifyContent: "center",
   alignItems: "center",
   zIndex: 999,
+  width: "fit-content",
+  maxWidth: "90%",
 });
 
 const FloatingNavbar = () => {
